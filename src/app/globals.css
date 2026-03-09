@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-soft: #fbf7f1;
+}
+
+@layer components {
+  .bento-card {
+    @apply rounded-[2rem] border border-stone-200/60 bg-white/85 p-6 shadow-sm backdrop-blur-sm;
+  }
+
+  .organic-bg {
+    background:
+      radial-gradient(circle at 10% 15%, rgba(215, 232, 219, 0.6) 0 20%, transparent 21%),
+      radial-gradient(circle at 85% 5%, rgba(237, 201, 196, 0.45) 0 15%, transparent 16%),
+      radial-gradient(circle at 90% 75%, rgba(242, 231, 213, 0.65) 0 25%, transparent 26%),
+      var(--bg-soft);
+  }
+
+  .flying-item {
+    position: fixed;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-soft);
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Producto">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2e7d5"/>
+      <stop offset="100%" stop-color="#d7e8db"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <g fill="#6b7280" font-family="Georgia, serif" text-anchor="middle">
+    <text x="200" y="240" font-size="28" font-weight="700">VENTO</text>
+    <text x="200" y="272" font-size="15" letter-spacing="2">PRODUCT IMAGE</text>
+  </g>
+</svg>

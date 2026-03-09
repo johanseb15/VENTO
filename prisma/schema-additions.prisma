@@ -1,0 +1,56 @@
+// prisma/schema-additions.prisma — Fase 4
+// Agregar estos modelos al schema.prisma existente
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int                          // 1–5
+  title     String
+  body      String   @db.Text
+  verified  Boolean  @default(false)     // compró el producto
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])          // un review por usuario/producto
+  @@index([productId])
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+// En modelo User agregar:
+// reviews      Review[]
+// wishlist     WishlistItem[]
+// resetTokens  PasswordResetToken[]
+
+// En modelo Product agregar:
+// reviews      Review[]
+// wishlist     WishlistItem[]

@@ -1,0 +1,48 @@
+// prisma/schema-additions-fase4.prisma
+// AGREGAR al schema existente:
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int
+  title     String
+  body      String   @db.Text
+  productId String
+  userId    String
+  createdAt DateTime @default(now())
+
+  product   Product  @relation(fields: [productId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, productId])  // 1 reseña por usuario por producto
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// EN el modelo User agregar:
+// reviews        Review[]
+// wishlistItems  WishlistItem[]
+// passwordResetToken PasswordResetToken?
+
+// EN el modelo Product agregar:
+// reviews       Review[]
+// wishlistItems WishlistItem[]
