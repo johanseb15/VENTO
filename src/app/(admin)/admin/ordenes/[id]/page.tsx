@@ -69,7 +69,7 @@ export default async function AdminOrdenPage({ params }: { params: Promise<{ id:
             </tr>
           </thead>
           <tbody className="divide-y divide-stone-50">
-            {order.items.map((item) => (
+            {order.items.map((item: any) => (
               <tr key={item.id}>
                 <td className="px-4 py-3 text-stone-900">{item.product.name}</td>
                 <td className="px-4 py-3 text-center text-stone-500">{item.quantity}</td>

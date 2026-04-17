@@ -1,7 +1,8 @@
 // src/infrastructure/db/PrismaAdminOrderRepository.ts
 import prisma from '@lib/prisma'
 import type { AdminOrderRepository } from '@application/AdminService'
-import type { Prisma, OrderStatus } from '@prisma/client'
+import type { Prisma } from '@prisma/client'
+import { OrderStatus } from '@prisma/client'
 
 export class PrismaAdminOrderRepository implements AdminOrderRepository {
   async findAll(page: number, pageSize: number, status?: string) {
