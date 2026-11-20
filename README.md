@@ -1,3 +1,22 @@
+> **Ficha de proyecto — Vyntrava | 2026-11-20**
+> Estado documental: revisión de repositorio; no implica despliegue ni auditoría de producción.
+
+## Resumen y propósito
+
+**Experimento de comercio electrónico full-stack.** Aplicación Next.js/TypeScript con Prisma, arquitectura de dominio y funcionalidades de búsqueda, favoritos, reseñas, recuperación de contraseña y notificaciones.
+
+## Estado y límites
+
+El README actual describe una fase concreta y pasos de integración; no constituye una certificación de despliegue integral. Las migraciones y sistemas externos requieren configuración.
+
+## Ubicación en el portfolio
+
+Reservorio de patrones técnicos para e-commerce; considerar reutilizar diseño de servicios y tests en Rafa Bikes, no fusionar aplicaciones completas.
+
+**Código:** [VENTO](https://github.com/johanseb15/VENTO) · **Documentación técnica previa:** conservada a continuación.
+
+---
+
 # VENTO — Fase 4: Búsqueda, Wishlist, Reseñas y Emails
 
 ## Archivos nuevos
